@@ -13,11 +13,9 @@ Um aplicativo simples de gerenciamento de tarefas com backend em FastAPI e front
 1. **Instale as dependências:**
    ```
    pip install fastapi uvicorn
-
 2. **Inicie o servidor:**
    ```
    uvicorn main:app --reload
-
 ### Frontend (React)
 1. **Instale as dependências:**
    ```
