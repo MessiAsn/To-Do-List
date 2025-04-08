@@ -16,9 +16,7 @@ Um aplicativo simples de gerenciamento de tarefas com backend em FastAPI e front
    ```
    python -m venv venv
    .\venv\Scripts\activate
-
    ```
-
 2. **Instale as dependências:**
    ```
    pip install fastapi uvicorn
