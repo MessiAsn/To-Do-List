@@ -1,4 +1,3 @@
-# main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
@@ -8,7 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Configurar CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,7 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Modelo Pydantic para a tarefa
 class Task(BaseModel):
     title: str
     description: Optional[str] = None
@@ -26,13 +23,11 @@ class TaskInDB(Task):
     id: int
     created_at: str
 
-# Conexão com o banco de dados
 def get_db_connection():
     conn = sqlite3.connect('tasks.db')
     conn.row_factory = sqlite3.Row
     return conn
 
-# Criar tabela se não existir
 def init_db():
     conn = get_db_connection()
     conn.execute('''
@@ -49,7 +44,6 @@ def init_db():
 
 init_db()
 
-# Rotas da API
 @app.get("/tasks/", response_model=list[TaskInDB])
 def read_tasks():
     conn = get_db_connection()
